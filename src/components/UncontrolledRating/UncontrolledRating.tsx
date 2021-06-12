@@ -1,43 +1,18 @@
 import React, {useState} from 'react';
-import Star from "../Rating/Star/Star";
+import UncStar from "./UncStar/UncStar";
 
 
-type UncontrolledRatingType = {
-    titleValue: string
-
-}
-const UncontrolledRating: React.FC<UncontrolledRatingType> = (props) => {
+const UncontrolledRating = () => {
     let [value, setValue] = useState(0)
 
     return (
         <div>
-            {props.titleValue}
             <div>
-                <Star select={value > 0}/>
-                <button onClick={() => {
-                    setValue(1)
-                }}>1
-                </button>
-                <Star select={value > 1}/>
-                <button onClick={() => {
-                    setValue(2)
-                }}>2
-                </button>
-                <Star select={value > 2}/>
-                <button onClick={() => {
-                    setValue(3)
-                }}>3
-                </button>
-                <Star select={value > 3}/>
-                <button onClick={() => {
-                    setValue(4)
-                }}>4
-                </button>
-                <Star select={value > 4}/>
-                <button onClick={() => {
-                    setValue(5)
-                }}>5
-                </button>
+                <UncStar select={value > 0} setValue={setValue} value={1}/>
+                <UncStar select={value > 1} setValue={setValue} value={2}/>
+                <UncStar select={value > 2} setValue={setValue} value={3}/>
+                <UncStar select={value > 3} setValue={setValue} value={4}/>
+                <UncStar select={value > 4} setValue={setValue} value={5}/>
             </div>
         </div>
     );
