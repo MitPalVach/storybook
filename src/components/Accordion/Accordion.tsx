@@ -1,17 +1,26 @@
 import React from "react";
 import AccordionTitle from "./AccordionTitle/AccordionTitle";
-import AccordionBody from "./AccordionBody/AccordionBody";
+import AccordionBody from "./AccordeonBody/AccordionBody";
+import styles from './Accordion.module.css';
 
 
+export type ItemType = {
+    title: string
+    value: any
+}
 type AccordionPropsType = {
-    title: string,
+    title: string
     collapsed: boolean
+    onChange: () => void
+    items: ItemType[]
+    onClick: (value:any)=> void
 }
 const Accordion = (props: AccordionPropsType) => {
     return (
-        <div>
-            <AccordionTitle title={props.title}/>
-            {!props.collapsed && <AccordionBody/>}
+        <div className={styles.accordionInner}>
+            <AccordionTitle title={props.title} onChange={props.onChange}
+            />
+            {!props.collapsed && <AccordionBody items={props.items} onClick={props.onClick}/>}
         </div>
     )
 }

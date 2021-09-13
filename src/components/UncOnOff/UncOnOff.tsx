@@ -1,8 +1,9 @@
 import React, {useState} from "react";
+import styles from './UncOnOff.module.css';
 
 
-const UncontrolledOnOff = () => {
-    let [on, setOn] = useState(false);
+const UncOnOff = () => {
+    let [on, setOn] = useState(true);
     const onStyles = {
         border: "1px solid #000",
         padding: '4px',
@@ -28,23 +29,23 @@ const UncontrolledOnOff = () => {
         borderRadius: "20px",
         backgroundColor: on ? "#8AFD6FFF" : "#FF5454FF"
     };
-    const wrapperStyles = {
-        margin: '20px'
+
+    const onClicked = () => {
+            setOn(true)
+    }
+    const offClicked = () => {
+        setOn(false)
     }
 
     return (
-        <div style={wrapperStyles}>
+        <div className={styles.uncOnOffInner}>
             <span style={onStyles}
-                  onClick={() => {
-                      setOn(true)
-                  }}>On</span>
+                  onClick={onClicked}>On</span>
             <span style={offStyles}
-                  onClick={() => {
-                      setOn(false)
-                  }}>Off</span>
+                  onClick={offClicked}>Off</span>
             <span style={indicatorStyles}>....</span>
         </div>
     )
 }
 
-export default UncontrolledOnOff;
+export default UncOnOff;

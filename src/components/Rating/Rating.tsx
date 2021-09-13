@@ -1,11 +1,13 @@
 import React from "react";
 import Star from "./Star/Star";
+import styles from './Rating.module.css';
 
-type RatingPropsType = {
+
+export type RatingPropsType = {
     value: number
 }
 const Rating = (props: RatingPropsType) => {
-    return <div>
+    return <div className={styles.ratingInner}>
         <Star select={props.value > 0} />
         <Star select={props.value > 1} />
         <Star select={props.value > 2} />

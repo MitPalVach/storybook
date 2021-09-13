@@ -1,9 +1,10 @@
 import React from "react";
+import styles from './InOff.module.css';
 
 
 type OnOffType = {
     on: boolean
-    onChange: (on:boolean)=> void
+    onChange: (on: boolean) => void
 }
 const OnOff = (props: OnOffType) => {
     const onStyles = {
@@ -31,15 +32,16 @@ const OnOff = (props: OnOffType) => {
         borderRadius: "20px",
         backgroundColor: props.on ? "#8AFD6FFF" : "#FF5454FF"
     };
-    const wrapperStyles = {
-        margin: '20px'
+
+    const onClicked = () => {
+        props.onChange(true)
+    }
+    const offClicked = () => {
+        props.onChange(false)
     }
 
-    const onClicked = () => {props.onChange(true)}
-    const offClicked = () => {props.onChange(false)}
-
     return (
-        <div style={wrapperStyles}>
+        <div className={styles.onOffInner}>
             <span style={onStyles} onClick={onClicked}>On</span>
             <span style={offStyles} onClick={offClicked}>Off</span>
             <span style={indicatorStyles}>....</span>

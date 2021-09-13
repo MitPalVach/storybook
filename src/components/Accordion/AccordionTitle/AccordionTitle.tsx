@@ -2,12 +2,13 @@ import React from "react";
 
 
 type AccordionTitlePropsType = {
-    title:string
+    title: string
+    onChange: () => void
 }
-const AccordionTitle = (props:AccordionTitlePropsType) => {
+const AccordionTitle = (props: AccordionTitlePropsType) => {
 
     return (
-        <h3>{props.title}</h3>
+        <h3 onClick={(e) => props.onChange()}>{props.title}</h3>
     )
 }
 

@@ -7,9 +7,9 @@ type AccordionTitlePropsType = {
 }
 const UncAccordionTitle = (props: AccordionTitlePropsType) => {
 
-    return (
+    return <>
         <h3 onClick={props.onChange}>{props.title}</h3>
-    )
+    </>
 }
 
 export default UncAccordionTitle;

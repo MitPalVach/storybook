@@ -1,40 +1,84 @@
 import React, {useState} from 'react';
 import './App.css';
-import Accordion from "./components/Accordion/Accordion";
-import UncontrolledOnOff from './components/UncontrolledOnOff/UncontrolledOnOff';
+import Accordion, {ItemType} from "./components/Accordion/Accordion";
+import UncOnOff from './components/UncOnOff/UncOnOff';
 import Rating from "./components/Rating/Rating";
-import UncontrolledAccordion from "./components/UncontrolledAccordion/UncontrolledAccordion";
-import UncontrolledRating from "./components/UncontrolledRating/UncontrolledRating";
+import UncAccordion from "./components/UncAccordion/UncAccordion";
+import UncRating from "./components/UncRating/UncRating";
 import OnOff from "./components/OnOff/OnOff";
+import Select, {ItemsSelectPropsType} from "./components/Select/Select";
 
 
-function App() {
+const App = () => {
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     let [switchOn, setSwitchOn] = useState<boolean>(false)
+    const [users, setUsers] = useState<ItemType[]>([{title: 'MitPal', value: 1}, {title: 'DarLeo', value: 2}])
+    const [select, setSelect] = useState<ItemsSelectPropsType[]>([
+        {title: 'Kazan', value: 1},
+        {title: 'Moscow', value: 2}
+    ])
+
     return (
         <div className={'app'}>
-            <h2>Контролируемый аккордион</h2>
-            <Accordion title={'first acc'} collapsed={true}/>
-            <Accordion title={'second acc'} collapsed={false}/>
-            <h2> Неконтролируемый аккордион</h2>
-            <UncontrolledAccordion titleValue={'Toggle'}
-                                   collapsed={accordionCollapsed}
-                                   onChange={() => {
-                                       setAccordionCollapsed(!accordionCollapsed)
-                                   }}/>
-            <h2>Контролируемый рейтинг</h2>
-            <Rating value={0}/>
-            <Rating value={2}/>
-            <Rating value={5}/>
-            <h2>Неконтролируемый рейтинг</h2>
-            <UncontrolledRating/>
-            <h2>Контролируемый Вкл\Выкл</h2>
-            <OnOff on={switchOn} onChange={(on) => {
-                setSwitchOn(on)
-            }}/>
-            <h2>Неконтролируемый Вкл\Выкл</h2>
-            <UncontrolledOnOff/>
-            <UncontrolledOnOff/>
+            <div className={'section'}>
+                <h2>Контролируемый аккордеон</h2>
+                <Accordion title={'first acc'} collapsed={true}
+                           items={users}
+                           onClick={() => {
+                           }}
+                           onChange={() => {
+                           }}
+                />
+                <Accordion title={'second acc'} collapsed={false}
+                           items={users}
+                           onClick={() => {
+                           }}
+                           onChange={() => {
+                           }}
+                />
+            </div>
+
+            <div className={'section'}>
+                <h2> Неконтролируемый аккордеон</h2>
+                <UncAccordion titleValue={'Toggle'}
+                              collapsed={accordionCollapsed}
+                              onChange={() => {
+                                  setAccordionCollapsed(!accordionCollapsed)
+                              }}/>
+            </div>
+
+            <div className={'section'}>
+                <h2>Контролируемый рейтинг</h2>
+                <Rating value={0}/>
+                <Rating value={2}/>
+                <Rating value={5}/>
+            </div>
+
+            <div className={'section'}>
+                <h2>Неконтролируемый рейтинг</h2>
+                <UncRating/>
+            </div>
+
+            <div className={'section'}>
+                <h2>Контролируемый Вкл\Выкл</h2>
+                <OnOff on={switchOn} onChange={(on) => {
+                    setSwitchOn(on)
+                }}/>
+            </div>
+
+            <div className={'section'}>
+                <h2>Неконтролируемый Вкл\Выкл</h2>
+                <UncOnOff/>
+            </div>
+
+            <div className={'section'}>
+                <h2>Select</h2>
+                <Select item={select}
+                        onChange={() => {
+                        }}
+                        value={Math.random}
+                />
+            </div>
         </div>
     )
 }
