@@ -10,7 +10,7 @@ import Select, {ItemsSelectPropsType} from "./components/Select/Select";
 
 
 const App = () => {
-    let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
+
     let [switchOn, setSwitchOn] = useState<boolean>(false)
     const [users, setUsers] = useState<ItemType[]>([{title: 'MitPal', value: 1}, {title: 'DarLeo', value: 2}])
     const [item, setItem] = useState<ItemsSelectPropsType[]>([
@@ -49,11 +49,7 @@ const App = () => {
 
             <div className={'section'}>
                 <h2> Неконтролируемый аккордеон</h2>
-                <UncAccordion titleValue={'Toggle'}
-                              collapsed={accordionCollapsed}
-                              onChange={() => {
-                                  setAccordionCollapsed(!accordionCollapsed)
-                              }}/>
+                <UncAccordion titleValue={'Toggle'}/>
             </div>
 
             <div className={'section'}>
