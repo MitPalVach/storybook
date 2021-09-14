@@ -13,13 +13,22 @@ const App = () => {
     let [accordionCollapsed, setAccordionCollapsed] = useState<boolean>(false)
     let [switchOn, setSwitchOn] = useState<boolean>(false)
     const [users, setUsers] = useState<ItemType[]>([{title: 'MitPal', value: 1}, {title: 'DarLeo', value: 2}])
-    const [select, setSelect] = useState<ItemsSelectPropsType[]>([
-        {title: 'Kazan', value: 1},
-        {title: 'Moscow', value: 2}
+    const [item, setItem] = useState<ItemsSelectPropsType[]>([
+        {value: '1', title: 'Kazan'},
+        {value: '2', title: 'London'},
+        {value: '3', title: 'Paris'},
     ])
+
 
     return (
         <div className={'app'}>
+            <div className={'section'}>
+                <h2>Select</h2>
+                <Select onChange={() => {
+                }}
+                        item={item}/>
+            </div>
+
             <div className={'section'}>
                 <h2>Контролируемый аккордеон</h2>
                 <Accordion title={'first acc'} collapsed={true}
@@ -71,14 +80,6 @@ const App = () => {
                 <UncOnOff/>
             </div>
 
-            <div className={'section'}>
-                <h2>Select</h2>
-                <Select item={select}
-                        onChange={() => {
-                        }}
-                        value={Math.random}
-                />
-            </div>
         </div>
     )
 }

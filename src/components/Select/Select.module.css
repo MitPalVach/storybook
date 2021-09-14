@@ -6,13 +6,25 @@
 }
 
 .selectItems {
+    position: absolute;
     border: 1px solid gray;
     padding: 10px;
     border-radius: 8px;
+    background: #fff0ce;
 }
 
+.main {
+    display: inline-block;
+    min-width: 60px;
+    min-height: 20px;
+    background: #ccc;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid gray;
+    border-radius: 8px;
+}
 
-
-
-
+.item.selected {
+    background: yellow;
+}
 

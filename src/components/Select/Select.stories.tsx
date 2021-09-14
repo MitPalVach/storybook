@@ -1,7 +1,5 @@
 import React, {useState} from "react";
-import {action} from "@storybook/addon-actions";
-import Select, {ItemsSelectPropsType} from "./Select";
-import styles from './Select.module.css';
+import Select from "./Select";
 
 
 export default {
@@ -9,17 +7,32 @@ export default {
     component: Select,
 }
 
-const callback = action('select was fired')
+export const WithValue = () => {
+    const [value, setValue] = useState('2')
 
-export const SelectExample = () => <Select item={[{title: 'Kazan', value: 1}, {title: 'Moscow', value: 2}]}
-                                           onChange={callback} value={'1'}
-/>
-
-export const UnselectExample = () => {
-    const [select, setSelect] = useState<ItemsSelectPropsType[]>([
-        {title: 'Kazan', value: 1},
-        {title: 'Moscow', value: 2}
-    ])
-
-    return <Select item={select} onChange={callback} value={'1'}/>
+    return < >
+        <Select value={value} onChange={setValue}
+                item={[
+                    {value: '1', title: 'Kazan'},
+                    {value: '2', title: 'London'},
+                    {value: '3', title: 'Paris'},
+                ]}
+        />
+    </>
 }
+
+export const WhithoutValue = () => {
+    const [value, setValue] = useState(null)
+
+    return <>
+        <Select value={value} onChange={setValue}
+                item={[
+                    {value: '1', title: 'Kazan'},
+                    {value: '2', title: 'London'},
+                    {value: '3', title: 'Paris'},
+                ]}
+        />
+    </>
+}
+
+
