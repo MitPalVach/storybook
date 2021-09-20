@@ -73,3 +73,35 @@ export const HelpForReactMemo = () => {
     </>
 }
 
+// =================================
+
+const Students = (props: { students: Array<string> }) => {
+    console.log('Students')
+    return <div>{
+        props.students.map((s, i) => <div key={i}>{s}</div>)
+    }</div>
+}
+
+const OurStudents = React.memo(Students)
+
+export const LikeCallback = () => {
+    console.log('LikeCallback');
+    const [counter, setCounter] = useState<number>(0)
+    const [students, setStudents] = useState<Array<string>>(['Bob', 'Tom', 'Jane'])
+
+    const newStudent = useMemo(() => {
+        return students.filter(u => u.toLowerCase().indexOf('o') > -1)
+    }, [students])
+
+    const addStudent = () => {
+        const newStudent = [...students, 'Pusha' + new Date().getTime()]
+        setStudents(newStudent)
+    }
+    return <>
+        <button onClick={() => setCounter(counter + 1)}>+</button>
+        <button onClick={addStudent}>add student</button>
+        {counter}
+        <OurStudents students={students}/>
+    </>
+}
+
