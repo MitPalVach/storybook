@@ -3,7 +3,6 @@ import './DigitalClock.css'
 
 
 type PropsType = {
-    mode: 'digital'
     date: any
 }
 const getFirstZero = (num: number) => num < 10 ? '0' + num : num

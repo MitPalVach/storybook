@@ -3,7 +3,6 @@ import styles from './AnalogClock.module.css'
 
 
 type PropsType = {
-    mode: 'analog'
     date: any
 }
 const AnalogClock = (props: PropsType) => {

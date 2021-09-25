@@ -16,8 +16,8 @@ const Clock = () => {
 
     return (
         <>
-            <AnalogClock mode={'analog'} date={date}/>
-            <DigitalClock mode={'digital'} date={date}/>
+            <AnalogClock date={date}/>
+            <DigitalClock date={date}/>
         </>
     );
 };
