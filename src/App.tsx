@@ -7,7 +7,7 @@ import UncAccordion from "./components/UncAccordion/UncAccordion";
 import UncRating from "./components/UncRating/UncRating";
 import OnOff from "./components/OnOff/OnOff";
 import Select, {ItemsSelectPropsType} from "./components/Select/Select";
-import MyTime from "./components/MyTime/MyTime";
+import Clock from "./components/Clock/Clock";
 
 
 const App = () => {
@@ -77,7 +77,9 @@ const App = () => {
                 <UncOnOff/>
             </div>
 
-            <MyTime />
+            <div className={'section'}>
+                <Clock />
+            </div>
         </div>
     )
 }
